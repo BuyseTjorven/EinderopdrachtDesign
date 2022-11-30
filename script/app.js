@@ -44,6 +44,7 @@ const printAllChamp = function (jsonObject) {
 
 // #region ***  Callback Visualisation - show___ ***********
 const showbar = function () {
+  //the damage bar
   let progressBar = document.querySelector('.circular-progress');
   let valueContainer = document.querySelector('.value-container');
 
@@ -55,7 +56,7 @@ const showbar = function () {
     progressValue++;
     valueContainer.textContent = `${progressValue}%`;
     progressBar.style.background = `conic-gradient(
-      #4d5bf9 ${progressValue * 3.6}deg,
+      #fa0202 ${progressValue * 3.6}deg,
       #cadcff ${progressValue * 3.6}deg
   )`;
     if (progressValue == progressEndValue) {
@@ -65,6 +66,7 @@ const showbar = function () {
 };
 
 const showbar1 = function () {
+  //the armor bar
   let progressBar = document.querySelector('.circular-progress1');
   let valueContainer = document.querySelector('.value-container1');
 
@@ -76,7 +78,7 @@ const showbar1 = function () {
     progressValue++;
     valueContainer.textContent = `${progressValue}%`;
     progressBar.style.background = `conic-gradient(
-      #4d5bf9 ${progressValue * 3.6}deg,
+      #eefa02 ${progressValue * 3.6}deg,
       #cadcff ${progressValue * 3.6}deg
   )`;
     if (progressValue == progressEndValue) {
@@ -85,6 +87,7 @@ const showbar1 = function () {
   }, speed);
 };
 const showbar2 = function () {
+  //the healt bar
   let progressBar = document.querySelector('.circular-progress2');
   let valueContainer = document.querySelector('.value-container2');
 
@@ -96,7 +99,7 @@ const showbar2 = function () {
     progressValue++;
     valueContainer.textContent = `${progressValue}%`;
     progressBar.style.background = `conic-gradient(
-      #4d5bf9 ${progressValue * 3.6}deg,
+      #02fa1b ${progressValue * 3.6}deg,
       #cadcff ${progressValue * 3.6}deg
   )`;
     if (progressValue == progressEndValue) {
@@ -105,6 +108,7 @@ const showbar2 = function () {
   }, speed);
 };
 const showbar3 = function () {
+  //the speed bar
   let progressBar = document.querySelector('.circular-progress3');
   let valueContainer = document.querySelector('.value-container3');
 
