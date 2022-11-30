@@ -76,7 +76,46 @@ const showbar1 = function () {
     }
   }, speed);
 };
+const showbar2 = function () {
+  let progressBar = document.querySelector('.circular-progress2');
+  let valueContainer = document.querySelector('.value-container2');
 
+  let progressValue = 0;
+  let progressEndValue = 80;
+  let speed = 50;
+
+  let progress = setInterval(() => {
+    progressValue++;
+    valueContainer.textContent = `${progressValue}%`;
+    progressBar.style.background = `conic-gradient(
+      #4d5bf9 ${progressValue * 3.6}deg,
+      #cadcff ${progressValue * 3.6}deg
+  )`;
+    if (progressValue == progressEndValue) {
+      clearInterval(progress);
+    }
+  }, speed);
+};
+const showbar3 = function () {
+  let progressBar = document.querySelector('.circular-progress3');
+  let valueContainer = document.querySelector('.value-container3');
+
+  let progressValue = 0;
+  let progressEndValue = 80;
+  let speed = 50;
+
+  let progress = setInterval(() => {
+    progressValue++;
+    valueContainer.textContent = `${progressValue}%`;
+    progressBar.style.background = `conic-gradient(
+      #4d5bf9 ${progressValue * 3.6}deg,
+      #cadcff ${progressValue * 3.6}deg
+  )`;
+    if (progressValue == progressEndValue) {
+      clearInterval(progress);
+    }
+  }, speed);
+};
 const Popup = function () {
   // Get the modal
   var modal = document.getElementById('myModal');
@@ -126,8 +165,11 @@ const init = function () {
   console.log('DOM geladen');
   htmlRandomButton = document.querySelector('.js-random-button');
   //listenToRandom();
-  //showbar();
-  //showbar1();
+  //de show bars moeten naar de plaats gaan waar je klik event is en daar uitgevoerd worden.
+  showbar();
+  showbar1();
+  showbar2();
+  showbar3();
   getAllChamp();
   Popup();
 };
