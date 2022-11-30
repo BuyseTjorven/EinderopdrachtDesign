@@ -87,11 +87,11 @@ const listenToRandom = function () {
 // #endregion
 // #region ***  Data Access - get___                     ***********
 const getRandom = function () {
-  handleData(`http://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion/Aatrox.json`, printRandom);
+  handleData(`https://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion/Aatrox.json`, printRandom);
 };
 
 const getAllChamp = function (typeid) {
-  handleData(`http://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion.json`, printAllChamp);
+  handleData(`https://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion.json`, printAllChamp);
 };
 // #endregion
 const init = function () {
