@@ -11,7 +11,7 @@ const printRandom = function (jsonObject) {
   console.log(jsonObject.data[champ]);
   let image = jsonObject.data[champ].image.full;
   console.log(image);
-  image = `http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${image}`;
+  image = `https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${image}`;
   console.log(image);
   //console.log(Object.keys(jsonObject.data)[0]);
 };
@@ -23,7 +23,7 @@ const printAllChamp = function (jsonObject) {
   for (let i = 0; i < champ.length; i++) {
     let image = jsonObject.data[champ[i]].image.full;
     console.log(image);
-    image = `http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${image}`;
+    image = `https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${image}`;
     console.log(image);
     let overview = document.querySelector('.c-overview');
     overview.innerHTML += `<div class="c-overview__items">
