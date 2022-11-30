@@ -31,6 +31,7 @@ const printAllChamp = function (jsonObject) {
       </div>`;
     //console.log(Object.keys(jsonObject.data)[0]);
   }
+  Popup();
 };
 // #endregion
 
@@ -121,15 +122,19 @@ const Popup = function () {
   var modal = document.getElementById('myModal');
 
   // Get the button that opens the modal
-  var btn = document.getElementById('myBtn');
+  let buttons = document.querySelectorAll('.c-overview__items');
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName('close')[0];
 
   // When the user clicks the button, open the modal
-  btn.onclick = function () {
+  const clicked = function () {
+    console.log('clicked');
     modal.style.display = 'block';
   };
+  for (const btn of buttons) {
+    btn.addEventListener('click', clicked);
+  }
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
@@ -171,7 +176,7 @@ const init = function () {
   showbar2();
   showbar3();
   getAllChamp();
-  Popup();
+  //Popup();
 };
 
 document.addEventListener('DOMContentLoaded', init);
