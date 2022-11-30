@@ -76,6 +76,34 @@ const showbar1 = function () {
     }
   }, speed);
 };
+
+const Popup = function () {
+  // Get the modal
+  var modal = document.getElementById('myModal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById('myBtn');
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName('close')[0];
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function () {
+    modal.style.display = 'block';
+  };
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = 'none';
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
+};
 // #endregion
 // #region ***  Event Listeners - listenTo___         ***********
 const listenToRandom = function () {
@@ -101,8 +129,7 @@ const init = function () {
   //showbar();
   //showbar1();
   getAllChamp();
-  // laad basis data op pagina (een random unit nemen en met showelementen printen)
-  // dan gewoon een knop met klik random maken en als die geklikt wordt show elementen doen met die unit die opgehaald wordt)
+  Popup();
 };
 
 document.addEventListener('DOMContentLoaded', init);
