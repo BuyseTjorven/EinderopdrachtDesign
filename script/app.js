@@ -27,7 +27,7 @@ const printAllChamp = function (jsonObject) {
     console.log(image);
     let overview = document.querySelector('.c-overview');
     overview.innerHTML += `<div class="c-overview__items">
-        <img class="c-champion_img" src="${image}" alt="Aatrox_sprite" />
+        <img class="c-champion_img" src="${image}" alt="${champ[i]}" />
       </div>`;
     //console.log(Object.keys(jsonObject.data)[0]);
   }
@@ -122,17 +122,18 @@ const Popup = function () {
   var modal = document.getElementById('myModal');
 
   // Get the button that opens the modal
-  let buttons = document.querySelectorAll('.c-overview__items');
+  let buttons = document.querySelectorAll('.c-champion_img');
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName('close')[0];
 
   // When the user clicks the button, open the modal
   const clicked = function () {
-    console.log('clicked');
+    console.log('clicked' + ' ' + this.alt);
     modal.style.display = 'block';
   };
   for (const btn of buttons) {
+    console.log(btn.getAttribute('alt'));
     btn.addEventListener('click', clicked);
   }
 
