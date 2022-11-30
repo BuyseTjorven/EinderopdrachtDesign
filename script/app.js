@@ -50,7 +50,7 @@ const showbar = function () {
 
   let progressValue = 0;
   let progressEndValue = 80;
-  let speed = 100;
+  let speed = 20;
 
   let progress = setInterval(() => {
     progressValue++;
@@ -72,7 +72,7 @@ const showbar1 = function () {
 
   let progressValue = 0;
   let progressEndValue = 80;
-  let speed = 100;
+  let speed = 20;
 
   let progress = setInterval(() => {
     progressValue++;
@@ -93,7 +93,7 @@ const showbar2 = function () {
 
   let progressValue = 0;
   let progressEndValue = 80;
-  let speed = 100;
+  let speed = 20;
 
   let progress = setInterval(() => {
     progressValue++;
@@ -114,7 +114,7 @@ const showbar3 = function () {
 
   let progressValue = 0;
   let progressEndValue = 80;
-  let speed = 100;
+  let speed = 20;
 
   let progress = setInterval(() => {
     progressValue++;
