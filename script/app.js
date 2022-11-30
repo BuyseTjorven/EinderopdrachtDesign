@@ -6,25 +6,32 @@ let htmlRandomButton;
 
 // #region ***  Callback-no-Visualisation - callback___         ***********
 
-const printRandom = function (jsonObject) {
+const ShowDetail = function (jsonObject) {
   let champ = Object.keys(jsonObject.data)[0];
   console.log(jsonObject.data[champ]);
   let image = jsonObject.data[champ].image.full;
-  console.log(image);
-  image = `https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${image}`;
-  console.log(image);
-  //console.log(Object.keys(jsonObject.data)[0]);
+  let info = jsonObject.data[champ];
+  //console.log(image);
+  document.getElementById('title_popup').innerHTML = 'Info about ' + info.id;
+  document.getElementById('lore_popup').innerHTML = info.lore;
+  Dials();
 };
-
+const Dials = function () {
+  //de show bars moeten naar de plaats gaan waar je klik event is en daar uitgevoerd worden.
+  showbar();
+  showbar1();
+  showbar2();
+  showbar3();
+};
 const printAllChamp = function (jsonObject) {
   console.log(jsonObject);
   let champ = Object.keys(jsonObject.data);
   console.log(champ);
   for (let i = 0; i < champ.length; i++) {
     let image = jsonObject.data[champ[i]].image.full;
-    console.log(image);
+    //console.log(image);
     image = `https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${image}`;
-    console.log(image);
+    //console.log(image);
     let overview = document.querySelector('.c-overview');
     overview.innerHTML += `<div class="c-overview__items">
         <img class="c-champion_img" src="${image}" alt="${champ[i]}" />
@@ -129,11 +136,11 @@ const Popup = function () {
 
   // When the user clicks the button, open the modal
   const clicked = function () {
-    console.log('clicked' + ' ' + this.alt);
+    getRandom(this.alt);
     modal.style.display = 'block';
   };
   for (const btn of buttons) {
-    console.log(btn.getAttribute('alt'));
+    //console.log(btn.getAttribute('alt'));
     btn.addEventListener('click', clicked);
   }
 
@@ -149,18 +156,19 @@ const Popup = function () {
     }
   };
 };
+
 // #endregion
 // #region ***  Event Listeners - listenTo___         ***********
-const listenToRandom = function () {
-  htmlRandomButton.addEventListener('click', function () {
-    console.log('gedrukt');
-    getRandom();
-  });
-};
+// const listenToRandom = function () {
+//   htmlRandomButton.addEventListener('click', function () {
+//     console.log('gedrukt');
+//     getRandom();
+//   });
+// };
 // #endregion
 // #region ***  Data Access - get___                     ***********
-const getRandom = function () {
-  handleData(`https://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion/Aatrox.json`, printRandom);
+const getRandom = function (champ) {
+  handleData(`https://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion/${champ}.json`, ShowDetail);
 };
 
 const getAllChamp = function (typeid) {
@@ -170,14 +178,7 @@ const getAllChamp = function (typeid) {
 const init = function () {
   console.log('DOM geladen');
   htmlRandomButton = document.querySelector('.js-random-button');
-  //listenToRandom();
-  //de show bars moeten naar de plaats gaan waar je klik event is en daar uitgevoerd worden.
-  showbar();
-  showbar1();
-  showbar2();
-  showbar3();
   getAllChamp();
-  //Popup();
 };
 
 document.addEventListener('DOMContentLoaded', init);
