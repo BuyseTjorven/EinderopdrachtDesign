@@ -50,7 +50,7 @@ const showbar = function () {
 
   let progressValue = 0;
   let progressEndValue = 80;
-  let speed = 50;
+  let speed = 100;
 
   let progress = setInterval(() => {
     progressValue++;
@@ -72,7 +72,7 @@ const showbar1 = function () {
 
   let progressValue = 0;
   let progressEndValue = 80;
-  let speed = 50;
+  let speed = 100;
 
   let progress = setInterval(() => {
     progressValue++;
@@ -93,7 +93,7 @@ const showbar2 = function () {
 
   let progressValue = 0;
   let progressEndValue = 80;
-  let speed = 50;
+  let speed = 100;
 
   let progress = setInterval(() => {
     progressValue++;
@@ -114,7 +114,7 @@ const showbar3 = function () {
 
   let progressValue = 0;
   let progressEndValue = 80;
-  let speed = 50;
+  let speed = 100;
 
   let progress = setInterval(() => {
     progressValue++;
@@ -187,3 +187,11 @@ const init = function () {
 
 document.addEventListener('DOMContentLoaded', init);
 // #endregion
+
+//ideeen
+// grid van popup  4 rijen maken ipv 2 met indeling bvb 10% 40% 10% 40% en dan de woorden armor enzo in de 10% en de cirkels in de 40%
+// aan bovenstaande woorden icoontjes toevoegen vo armor enzo te verduidelijken
+// algemene media queries toevoegen
+// de popup nog wat mooier maken
+// de popup nog responsive maken
+// de popup nog een beetje meer data geven
