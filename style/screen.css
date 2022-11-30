@@ -1,0 +1,553 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+  /* colors */
+  --color-light: hsla(208, 100%, 90%, 1);
+  --color-dark: hsla(208, 100%, 20%, 1);
+
+  --color-front: var(--color-dark);
+  --color-back: var(--color-light);
+  /* opacity */
+
+  /* transitions */
+}
+.is-night {
+  --color-front: var(--color-light);
+  --color-back: var(--color-dark);
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+  font-feature-settings: 'zero' 1;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Work Sans', sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-front);
+  background-color: var(--color-back);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+/* ::-moz-selection {
+    background: red;
+    color: white;
+    text-shadow: none;
+} */
+
+::selection {
+  background: var(--color-front);
+  color: white;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  margin: 0 0 24px;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0 0 24px;
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 24px;
+}
+
+ul,
+ol {
+  padding-left: 24px;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 24px;
+}
+
+a {
+  color: red;
+  outline-color: red;
+  outline-width: medium;
+  outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+  color: red;
+}
+
+a:hover,
+a:focus {
+  color: red;
+}
+
+label,
+input {
+  display: block;
+}
+
+select {
+  width: 100%;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+
+.o-hide-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+/*
+    Component: Grid
+*/
+
+.c-overview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  margin: 20px;
+}
+
+.c-overview__items {
+  background-color: var(--global-color-white);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04);
+  max-width: 140px;
+  max-height: 140px;
+  /* padding: 20px; */
+}
+
+.c-champion_img{
+  width: 100%;
+  height: 100%;
+}
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-logo {
+  font-size: 1rem;
+  gap: 0.5rem;
+  display: flex;
+  line-height: 1rem;
+  align-items: center;
+  margin-bottom: auto;
+}
+
+/*
+    Component: Sun
+    ---
+    The sun
+*/
+
+.c-sun {
+  fill: var(--color-front);
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.c-logo .c-sun {
+}
+
+/*
+    Component: App
+    ---
+    Main app wrapper
+*/
+.c-app {
+  min-height: 100vh;
+  max-width: 25rem;
+  display: flex;
+  padding: 2rem 2rem 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.c-app__summary {
+  font-size: 1.75rem;
+  line-height: 2.5rem;
+}
+/*
+    Component: Horizon
+    ---
+    Horizon with sun visualisation
+*/
+.c-horizon__line {
+  display: flex;
+  justify-content: space-between;
+  border-top: var(--color-front) 1px solid;
+  padding-top: 0.5rem;
+}
+.c-horizon {
+  margin-bottom: 2.125rem;
+}
+.c-horizon__time {
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+}
+.c-horizon__sky-wrapper {
+  position: relative;
+  height: 12.5rem;
+  overflow: hidden;
+  padding-top: 1.375rem;
+  padding-right: 2.5rem;
+}
+
+.c-horizon__sky {
+  position: relative;
+  height: 100%;
+}
+
+.c-horizon__sun::before {
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+  content: attr(data-time);
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.c-horizon__sun {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    transform:translateY(1.375rem);
+}
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: Mute
+    Mute with opacity
+*/
+.u-muted {
+  opacity: 0.5;
+}
+/*------------------------------------*\
+#STATES
+\*------------------------------------*/
+
+/*
+    Change the theme using CSS vars.
+*/
+
+/* Night version: just switch the light and dark vars */
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+body {
+  height: 100vh;
+  background: linear-gradient(#e8f0f7 50%, #4d5bf9 50%);
+}
+
+.container {
+  height: 500px;
+  width: 75%;
+  background-color: #ffffff;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 8px;
+  box-shadow: 20px 20px 40px rgba(60, 60, 150, 0.25);
+  display: grid;
+  place-items: center;
+  grid-template-rows: 50% 50%;
+  /*grid-template-columns: 50% 50%;*/
+  /* vanaf computer breedte naaste elkaar zetten.*/
+}
+
+.circular-progress {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  display: grid;
+  grid-row-start: 1;
+  place-items: center;
+}
+.circular-progress1 {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  display: grid;
+  grid-row-start: 2;
+  place-items: center;
+}
+
+.circular-progress:before {
+  content: "";
+  position: absolute;
+  height: 84%;
+  width: 84%;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+.circular-progress1:before {
+  content: "";
+  position: absolute;
+  height: 84%;
+  width: 84%;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.value-container {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+  color: #231c3d;
+}
+.value-container1 {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+  color: #231c3d;
+}
+
+@media screen and (min-width: 768px) {
+  .c-overview {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 30px;
+      margin: 30px;
+    }
+}
+@media screen and (min-width: 1028px){
+  .c-overview {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-gap: 40px;
+      margin: 50px;
+    }
+}

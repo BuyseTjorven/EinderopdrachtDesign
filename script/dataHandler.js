@@ -4,9 +4,7 @@ const handleData = function (url, callbackFunctionName, callbackErrorFunctionNam
   fetch(url, {
     method: method,
     body: body,
-    headers: {
-      'content-type': 'application/json',
-    },
+    headers: {},
   })
     .then(function (response) {
       if (!response.ok) {
