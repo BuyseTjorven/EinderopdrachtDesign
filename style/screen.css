@@ -443,6 +443,8 @@ input::placeholder {
   width: 80%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  animation-name: animatetop;
+    animation-duration: 0.8s
 }
 .modal-content-show{
   opacity: 1;
@@ -630,4 +632,16 @@ body {
       font-size: 2rem;
     }
 
+}
+/* Add Animation */
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+
+  to {
+    top: 0;
+    opacity: 1
+  }
 }
