@@ -173,7 +173,11 @@ const Popup = function () {
     var modal_content = document.querySelector('.modal-content');
     modal_content.classList.remove('modal-content-show');
   };
-
+  window.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      span.click();
+    }
+  });
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
     if (event.target == modal) {
