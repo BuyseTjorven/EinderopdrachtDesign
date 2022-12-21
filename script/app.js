@@ -46,8 +46,8 @@ const printAllChamp = function (jsonObject) {
     image = `https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${image}`;
     //console.log(image);
     let overview = document.querySelector('.c-overview');
-    overview.innerHTML += `<div class="c-overview__items" tabindex=0>
-        <img class="c-champion_img" src="${image}" alt="${champ[i]}" />
+    overview.innerHTML += `<div class="c-overview__items">
+        <img class="c-champion_img" tabindex="0" src="${image}" alt="${champ[i]}" />
       </div>`;
     //console.log(Object.keys(jsonObject.data)[0]);
   }
@@ -150,7 +150,6 @@ const Popup = function () {
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName('close')[0];
-
   // When the user clicks the button, open the modal
   const clicked = function () {
     getRandom(this.alt);
@@ -158,11 +157,16 @@ const Popup = function () {
     modal_content.classList.add('modal-content-show');
     modal.style.display = 'block';
   };
+
   for (const btn of buttons) {
     //console.log(btn.getAttribute('alt'));
+    btn.addEventListener('keypress', function (event) {
+      if (event.key === 'Enter') {
+        btn.click();
+      }
+    });
     btn.addEventListener('click', clicked);
   }
-
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
     modal.style.display = 'none';
