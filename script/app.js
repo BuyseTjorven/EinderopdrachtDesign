@@ -15,6 +15,10 @@ const ShowDetail = function (jsonObject) {
   let armor = jsonObject.data[champ].info.defense;
   let magic = jsonObject.data[champ].info.magic;
   let difficulty = jsonObject.data[champ].info.difficulty;
+  console.log(damage);
+  console.log(armor);
+  console.log(magic);
+  console.log(difficulty);
   showbar(damage * 10);
   showbar1(armor * 10);
   showbar2(difficulty * 10);
