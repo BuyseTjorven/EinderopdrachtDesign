@@ -8,11 +8,13 @@
     <script src="script/dataHandler.js"></script>
     <link rel="stylesheet" href="style/normalize.css" />
     <link rel="stylesheet" href="style/screen.css" />
+    <link rel="icon" href="favicon.ico" />
     <title>Eindopdracht</title>
   </head>
   <body>
     <div class="c-header">
-      <h1>League Champions</h1>
+      <img src="img/league.png" alt="logo" class="small-logo" />
+      <img src="img/league-of-legends-logo.png" class="text-logo" />
     </div>
     <div>
       <!-- Trigger/Open The Modal -->
@@ -25,17 +27,29 @@
           <p id="lore_popup"></p>
           <h2>Champion Stats</h2>
           <div class="container">
-            <div class="circular-progress c-circular-progress">
-              <div class="value-container c-value-container">0%</div>
+            <div class="c-chart-title">
+              <p>Attack</p>
+              <div class="circular-progress c-circular-progress">
+                <div class="value-container c-value-container">0%</div>
+              </div>
             </div>
-            <div class="circular-progress1 c-circular-progress">
-              <div class="value-container1 c-value-container">0%</div>
+            <div class="c-chart-title">
+              <p>Defense</p>
+              <div class="circular-progress1 c-circular-progress">
+                <div class="value-container1 c-value-container">0%</div>
+              </div>
             </div>
-            <div class="circular-progress2 c-circular-progress">
-              <div class="value-container2 c-value-container">0%</div>
+            <div class="c-chart-title">
+              <p>Difficulty</p>
+              <div class="circular-progress2 c-circular-progress">
+                <div class="value-container2 c-value-container">0%</div>
+              </div>
             </div>
-            <div class="circular-progress3 c-circular-progress">
-              <div class="value-container3 c-value-container">0%</div>
+            <div class="c-chart-title">
+              <p>Magic</p>
+              <div class="circular-progress3 c-circular-progress">
+                <div class="value-container3 c-value-container">0%</div>
+              </div>
             </div>
           </div>
         </div>

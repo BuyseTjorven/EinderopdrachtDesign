@@ -11,13 +11,22 @@ const ShowDetail = function (jsonObject) {
   console.log(jsonObject.data[champ]);
   let image = jsonObject.data[champ].image.full;
   let info = jsonObject.data[champ];
+  let damage = jsonObject.data[champ].info.attack;
+  let armor = jsonObject.data[champ].info.defense;
+  let magic = jsonObject.data[champ].info.magic;
+  let difficulty = jsonObject.data[champ].info.difficulty;
+  showbar(damage * 10);
+  showbar1(armor * 10);
+  showbar2(difficulty * 10);
+  showbar3(magic * 10);
   //console.log(image);
   document.getElementById('title_popup').innerHTML = 'Info about ' + info.id;
   document.getElementById('lore_popup').innerHTML = info.lore;
-  Dials();
+  //Dials();
 };
 const Dials = function () {
   //de show bars moeten naar de plaats gaan waar je klik event is en daar uitgevoerd worden.
+  //in showbar moet je de progressEndValue meegeven..
   showbar();
   showbar1();
   showbar2();
@@ -33,7 +42,7 @@ const printAllChamp = function (jsonObject) {
     image = `https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${image}`;
     //console.log(image);
     let overview = document.querySelector('.c-overview');
-    overview.innerHTML += `<div class="c-overview__items">
+    overview.innerHTML += `<div class="c-overview__items" tabindex=0>
         <img class="c-champion_img" src="${image}" alt="${champ[i]}" />
       </div>`;
     //console.log(Object.keys(jsonObject.data)[0]);
@@ -43,13 +52,13 @@ const printAllChamp = function (jsonObject) {
 // #endregion
 
 // #region ***  Callback Visualisation - show___ ***********
-const showbar = function () {
+const showbar = function (progressEndValue) {
   //the damage bar
   let progressBar = document.querySelector('.circular-progress');
   let valueContainer = document.querySelector('.value-container');
 
   let progressValue = 0;
-  let progressEndValue = 80;
+  //let progressEndValue = 80;
   let speed = 20;
 
   let progress = setInterval(() => {
@@ -65,13 +74,13 @@ const showbar = function () {
   }, speed);
 };
 
-const showbar1 = function () {
+const showbar1 = function (progressEndValue) {
   //the armor bar
   let progressBar = document.querySelector('.circular-progress1');
   let valueContainer = document.querySelector('.value-container1');
 
   let progressValue = 0;
-  let progressEndValue = 80;
+  //let progressEndValue = 80;
   let speed = 20;
 
   let progress = setInterval(() => {
@@ -86,13 +95,13 @@ const showbar1 = function () {
     }
   }, speed);
 };
-const showbar2 = function () {
+const showbar2 = function (progressEndValue) {
   //the healt bar
   let progressBar = document.querySelector('.circular-progress2');
   let valueContainer = document.querySelector('.value-container2');
 
   let progressValue = 0;
-  let progressEndValue = 80;
+  //let progressEndValue = 80;
   let speed = 20;
 
   let progress = setInterval(() => {
@@ -107,13 +116,13 @@ const showbar2 = function () {
     }
   }, speed);
 };
-const showbar3 = function () {
+const showbar3 = function (progressEndValue) {
   //the speed bar
   let progressBar = document.querySelector('.circular-progress3');
   let valueContainer = document.querySelector('.value-container3');
 
   let progressValue = 0;
-  let progressEndValue = 80;
+  //let progressEndValue = 80;
   let speed = 20;
 
   let progress = setInterval(() => {
@@ -141,6 +150,8 @@ const Popup = function () {
   // When the user clicks the button, open the modal
   const clicked = function () {
     getRandom(this.alt);
+    var modal_content = document.querySelector('.modal-content');
+    modal_content.classList.add('modal-content-show');
     modal.style.display = 'block';
   };
   for (const btn of buttons) {
@@ -151,12 +162,16 @@ const Popup = function () {
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
     modal.style.display = 'none';
+    var modal_content = document.querySelector('.modal-content');
+    modal_content.classList.remove('modal-content-show');
   };
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = 'none';
+      var modal_content = document.querySelector('.modal-content');
+      modal_content.classList.remove('modal-content-show');
     }
   };
 };
@@ -195,3 +210,5 @@ document.addEventListener('DOMContentLoaded', init);
 // de popup nog wat mooier maken
 // de popup nog responsive maken
 // de popup nog een beetje meer data geven
+
+//extra uitleg bij damge enzo als op desktop grote is

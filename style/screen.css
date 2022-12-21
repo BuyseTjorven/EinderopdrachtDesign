@@ -1,6 +1,10 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
+@font-face {
+  font-family: 'Leaguefont';
+  src: url('../fonts/Friz\ Quadrata\ Bold.woff2')format(woff2);
+}
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
@@ -35,7 +39,7 @@ html {
   font-feature-settings: 'zero' 1;
   font-size: 16px;
   line-height: 1.5;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Leaguefont','Work Sans', sans-serif;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -374,13 +378,25 @@ input::placeholder {
     width: 2.5rem;
     transform:translateY(1.375rem);
 }
-
+.small-logo {
+  width: 50px;
+  height: 50px;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  display: block;
+}
+.text-logo {
+  
+}
 .c-header {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   margin-bottom: 1rem;
-  text-align: center;
+  /* text-align: center; */
+  background-color: #8c3ada;
+  color: gold;
+  padding-bottom: 0.5rem;
 }
 
 /*
@@ -419,6 +435,12 @@ input::placeholder {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.modal-content-show{
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
 
 /* The Close Button */
@@ -527,7 +549,6 @@ input::placeholder {
   }
 }
 body {
-  height: 100vh;
   background: linear-gradient(#e8f0f7 50%, #4d5bf9 50%);
 }
 
@@ -536,10 +557,12 @@ body {
   place-items: center;
   grid-template-rows: 50% 50%;
   grid-template-columns: 50% 50%;
-  grid-gap: 30px;
+  grid-gap: 16px 0px;
   /* vanaf computer breedte naaste elkaar zetten.*/
 }
-
+.c-chart-title{
+  text-align: center;
+}
 .c-circular-progress {
   position: relative;
   height: 100px;
@@ -563,33 +586,14 @@ body {
   font-size: 32px;
   color: #231c3d;
 }
-.circular-progress {
-}
 .circular-progress1 {
+  grid-row-start: 1;
 }
 .circular-progress2 {
-  grid-row-start: 2;
+  grid-row-start: 4;
 }
 .circular-progress3 {
-  grid-row-start: 2;
-}
-.circular-progress:before {
-}
-.circular-progress1:before {
-}
-.circular-progress2:before {
-}
-.circular-progress3:before {
-}
-.value-container {
-}
-.value-container1 {
-}
-
-.value-container2 {
-}
-
-.value-container3 {
+  grid-row-start: 4;
 }
 @media screen and (min-width: 768px) {
   .c-overview {
@@ -606,4 +610,18 @@ body {
       grid-gap: 40px;
       margin: 50px;
     }
+    .c-circular-progress {
+      position: relative;
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      display: grid;
+      grid-row-start: 1;
+      place-items: center;
+    }
+    .c-chart-title {
+      text-align: center;
+      font-size: 2rem;
+    }
+
 }
