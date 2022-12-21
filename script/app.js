@@ -68,7 +68,7 @@ const showbar = function (progressEndValue) {
       #fa0202 ${progressValue * 3.6}deg,
       #cadcff ${progressValue * 3.6}deg
   )`;
-    if (progressValue == progressEndValue) {
+    if (progressValue >= progressEndValue) {
       clearInterval(progress);
     }
   }, speed);
@@ -90,7 +90,7 @@ const showbar1 = function (progressEndValue) {
       #eefa02 ${progressValue * 3.6}deg,
       #cadcff ${progressValue * 3.6}deg
   )`;
-    if (progressValue == progressEndValue) {
+    if (progressValue >= progressEndValue) {
       clearInterval(progress);
     }
   }, speed);
@@ -111,7 +111,7 @@ const showbar2 = function (progressEndValue) {
       #02fa1b ${progressValue * 3.6}deg,
       #cadcff ${progressValue * 3.6}deg
   )`;
-    if (progressValue == progressEndValue) {
+    if (progressValue >= progressEndValue) {
       clearInterval(progress);
     }
   }, speed);
@@ -132,7 +132,7 @@ const showbar3 = function (progressEndValue) {
       #4d5bf9 ${progressValue * 3.6}deg,
       #cadcff ${progressValue * 3.6}deg
   )`;
-    if (progressValue == progressEndValue) {
+    if (progressValue >= progressEndValue) {
       clearInterval(progress);
     }
   }, speed);
