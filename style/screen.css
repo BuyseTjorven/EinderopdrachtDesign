@@ -577,7 +577,6 @@ input::placeholder {
   }
 }
 body {
-  background: linear-gradient(var(--color-white) 50%,var(--color-alpha) 50%);
 }
 
 .container {
