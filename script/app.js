@@ -1,5 +1,6 @@
 'use strict';
 let htmlRandomButton;
+let id;
 // #region ***  DOM references                           ***********
 
 // #endregion
@@ -7,21 +8,47 @@ let htmlRandomButton;
 // #region ***  Callback-no-Visualisation - callback___         ***********
 
 const ShowDetail = function (jsonObject) {
-  let champ = Object.keys(jsonObject.data)[0];
-  console.log(jsonObject.data[champ]);
-  let image = jsonObject.data[champ].image.full;
-  let info = jsonObject.data[champ];
-  let damage = jsonObject.data[champ].info.attack;
-  let armor = jsonObject.data[champ].info.defense;
-  let magic = jsonObject.data[champ].info.magic;
-  let difficulty = jsonObject.data[champ].info.difficulty;
-  showbar(damage * 10);
-  showbar1(armor * 10);
-  showbar2(difficulty * 10);
-  showbar3(magic * 10);
+  // let champ = Object.keys(jsonObject.data)[0];
+  // console.log(jsonObject.data[champ]);
+  // let image = jsonObject.data[champ].image.full;
+  // let info = jsonObject.data[champ];
+  // let damage = jsonObject.data[champ].info.attack;
+  // let armor = jsonObject.data[champ].info.defense;
+  // let magic = jsonObject.data[champ].info.magic;
+  // let difficulty = jsonObject.data[champ].info.difficulty;$
+  // id = id - 1;
+  const dogs = [];
+  for (let dog of jsonObject) {
+    dogs[dog.id] = dog;
+  }
+  let weight = dogs[id].weight.metric;
+  weight = weight.split(' - ');
+  if (weight[0] == undefined || weight[0] == null || weight[0] == '') {
+    weight[0] = 0;
+  }
+  if (weight[1] == undefined || weight[1] == null || weight[1] == '') {
+    weight[1] = 0;
+  }
+  let heigt = dogs[id].height.metric;
+  heigt = heigt.split(' - ');
+  if (heigt[0] == undefined || heigt[0] == null || heigt[0] == '') {
+    heigt[0] = 0;
+  }
+  if (heigt[1] == undefined || heigt[1] == null || heigt[1] == '') {
+    heigt[1] = 0;
+  }
+  showbar(weight[0], weight[1]);
+  showbar1(heigt[0], heigt[1]);
   //console.log(image);
-  document.getElementById('title_popup').innerHTML = 'Info about ' + info.id;
-  document.getElementById('lore_popup').innerHTML = info.lore;
+  document.getElementById('title_popup').innerHTML = dogs[id].name;
+  document.getElementById('bredfor_popup').innerHTML = "Bred for";
+  document.getElementById('bredforcontent_popup').innerHTML = dogs[id].bred_for;
+  document.getElementById('temprament_popup').innerHTML = 'Temprament';
+  document.getElementById('tempramentcontent_popup').innerHTML = dogs[id].temperament;
+  const image = document.getElementById('img_popup');
+
+  image.src = `${dogs[id].image.url}`;
+  console.log(dogs[id].name);
   //Dials();
 };
 const Dials = function () {
@@ -29,44 +56,40 @@ const Dials = function () {
   //in showbar moet je de progressEndValue meegeven..
   showbar();
   showbar1();
-  showbar2();
-  showbar3();
 };
-const printAllChamp = function (jsonObject) {
-  //console.log(jsonObject);
-  let champ = Object.keys(jsonObject.data);
-  console.log(champ);
-  for (let i = 0; i < champ.length; i++) {
-    let image = jsonObject.data[champ[i]].image.full;
-    //console.log(image);
-    image = `https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/${image}`;
+const printAllDog = function (jsonObject) {
+  console.log(jsonObject);
+  for (let dog of jsonObject) {
+    //console.log(dog);
+    let image = `${dog.image.url}`;
     //console.log(image);
     let overview = document.querySelector('.c-overview');
     overview.innerHTML += `<div class="c-overview__items">
-        <img class="c-champion_img" tabindex="0" src="${image}" alt="${champ[i]}" />
+        <img class="c-champion_img" tabindex="0" src="${image}" alt="${dog.id}" />
       </div>`;
-    //console.log(Object.keys(jsonObject.data)[0]);
   }
   Popup();
 };
 // #endregion
 
 // #region ***  Callback Visualisation - show___ ***********
-const showbar = function (progressEndValue) {
+const showbar = function (startValue, progressEndValue) {
   //the damage bar
   let progressBar = document.querySelector('.circular-progress');
   let valueContainer = document.querySelector('.value-container');
 
-  let progressValue = 0;
+  let progressValue = startValue;
+  progressEndValue = progressEndValue;
   //let progressEndValue = 80;
   let speed = 20;
 
   let progress = setInterval(() => {
     progressValue++;
-    valueContainer.textContent = `${progressValue}%`;
+    valueContainer.textContent = `${startValue} - ${progressValue} KG`;
     progressBar.style.background = `conic-gradient(
-      #fa0202 ${progressValue * 3.6}deg,
-      #cadcff ${progressValue * 3.6}deg
+      #cadcff ${startValue * 3.6}deg,
+      #fa0202 ${startValue * 3.6}deg ${progressValue * 3.6}deg,
+      #cadcff ${progressValue * 3.6}deg ${progressEndValue * 3.6}deg
   )`;
     if (progressValue >= progressEndValue) {
       clearInterval(progress);
@@ -74,69 +97,29 @@ const showbar = function (progressEndValue) {
   }, speed);
 };
 
-const showbar1 = function (progressEndValue) {
+const showbar1 = function (startValue, progressEndValue) {
   //the armor bar
   let progressBar = document.querySelector('.circular-progress1');
   let valueContainer = document.querySelector('.value-container1');
 
-  let progressValue = 0;
+  let progressValue = startValue;
   //let progressEndValue = 80;
   let speed = 20;
 
   let progress = setInterval(() => {
     progressValue++;
-    valueContainer.textContent = `${progressValue}%`;
+    valueContainer.textContent = `${startValue} - ${progressValue} cm`;
     progressBar.style.background = `conic-gradient(
-      #eefa02 ${progressValue * 3.6}deg,
-      #cadcff ${progressValue * 3.6}deg
+      #cadcff ${startValue * 3.6}deg,
+      #eefa02 ${startValue * 3.6}deg ${progressValue * 3.6}deg,
+      #cadcff ${progressValue * 3.6}deg ${progressEndValue * 3.6}deg
   )`;
     if (progressValue >= progressEndValue) {
       clearInterval(progress);
-    }
+    };
   }, speed);
 };
-const showbar2 = function (progressEndValue) {
-  //the healt bar
-  let progressBar = document.querySelector('.circular-progress2');
-  let valueContainer = document.querySelector('.value-container2');
 
-  let progressValue = 0;
-  //let progressEndValue = 80;
-  let speed = 20;
-
-  let progress = setInterval(() => {
-    progressValue++;
-    valueContainer.textContent = `${progressValue}%`;
-    progressBar.style.background = `conic-gradient(
-      #02fa1b ${progressValue * 3.6}deg,
-      #cadcff ${progressValue * 3.6}deg
-  )`;
-    if (progressValue >= progressEndValue) {
-      clearInterval(progress);
-    }
-  }, speed);
-};
-const showbar3 = function (progressEndValue) {
-  //the speed bar
-  let progressBar = document.querySelector('.circular-progress3');
-  let valueContainer = document.querySelector('.value-container3');
-
-  let progressValue = 0;
-  //let progressEndValue = 80;
-  let speed = 20;
-
-  let progress = setInterval(() => {
-    progressValue++;
-    valueContainer.textContent = `${progressValue}%`;
-    progressBar.style.background = `conic-gradient(
-      #4d5bf9 ${progressValue * 3.6}deg,
-      #cadcff ${progressValue * 3.6}deg
-  )`;
-    if (progressValue >= progressEndValue) {
-      clearInterval(progress);
-    }
-  }, speed);
-};
 const Popup = function () {
   // Get the modal
   var modal = document.getElementById('myModal');
@@ -148,7 +131,9 @@ const Popup = function () {
   var span = document.getElementsByClassName('close')[0];
   // When the user clicks the button, open the modal
   const clicked = function () {
-    getRandom(this.alt);
+    id = this.getAttribute('alt');
+    getAllDoginfo();
+    console.log(id);
     var modal_content = document.querySelector('.modal-content');
     modal_content.classList.add('modal-content-show');
     modal.style.display = 'block';
@@ -201,11 +186,18 @@ const getRandom = function (champ) {
 const getAllChamp = function (typeid) {
   handleData(`https://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion.json`, printAllChamp);
 };
+const getAllDog = function (typeid) {
+  handleData(`https://api.TheDogAPI.com/v1/breeds`, printAllDog);
+};
+const getAllDoginfo = function (typeid) {
+  handleData(`https://api.TheDogAPI.com/v1/breeds`, ShowDetail);
+};
 // #endregion
 const init = function () {
   console.log('DOM geladen');
   htmlRandomButton = document.querySelector('.js-random-button');
-  getAllChamp();
+  //getAllChamp();
+  getAllDog();
 };
 
 document.addEventListener('DOMContentLoaded', init);

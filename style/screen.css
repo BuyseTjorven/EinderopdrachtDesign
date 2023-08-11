@@ -140,6 +140,7 @@ table,
 address,
 figure {
   margin: 0 0 1.5rem;
+  text-align: center;
 }
 
 ul,
@@ -267,7 +268,7 @@ input::placeholder {
 
 .c-overview {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   margin: 1.2rem;
   padding-bottom: 2rem;
@@ -276,19 +277,21 @@ input::placeholder {
 .c-overview__items {
   background-color: var(--global-color-white);
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04);
-  max-width: 140px;
-  max-height: 140px;
+  max-width: 340px;
+  max-height: 340px;
   /* padding: 20px; */
 }
 .c-overview__items:hover {
-  border: var(--color-alpha) 6px solid;
+  border: var(--color-alpha) 3px solid;
 }
 .c-champion_img:focus {
-  border: var(--color-alpha) 6px solid;
+  border: var(--color-alpha) 3px solid;
 }
 .c-champion_img{
   width: 100%;
   height: 100%;
+  max-height: 300px;
+
 }
 /*
     Component: Logo
@@ -458,6 +461,15 @@ input::placeholder {
   opacity: 1;
   transition: opacity 1s ease-in-out;
 }
+.modal-foto{
+  /* padding-left: 40%; */
+  margin-top: 1.5rem;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+}
 
 /* The Close Button */
 .close {
@@ -581,8 +593,8 @@ body {
 }
 .c-circular-progress {
   position: relative;
-  height: 100px;
-  width: 100px;
+  height: 140px;
+  width: 140px;
   border-radius: 50%;
   display: grid;
   grid-row-start: 1;
@@ -614,22 +626,41 @@ body {
 @media screen and (min-width: 768px) {
   .c-overview {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       grid-gap: 2rem;
       margin: 2rem;
     }
+    .modal-foto {
+      /* padding-left: 40%; */
+      margin-top: 1.5rem;
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      max-height: 280px;
+      max-width: 420px;
+    }
+        .c-circular-progress {
+          position: relative;
+          height: 140px;
+          width: 140px;
+          border-radius: 50%;
+          display: grid;
+          grid-row-start: 1;
+          place-items: center;
+        }
 }
 @media screen and (min-width: 1028px){
   .c-overview {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       grid-gap: 2.5rem;
       margin: 3.125rem;
     }
     .c-circular-progress {
       position: relative;
-      height: 200px;
-      width: 200px;
+      height: 140px;
+      width: 140px;
       border-radius: 50%;
       display: grid;
       grid-row-start: 1;
@@ -638,6 +669,16 @@ body {
     .c-chart-title {
       text-align: center;
       font-size: 2rem;
+    }
+    .modal-foto {
+      /* padding-left: 40%; */
+      margin-top: 1.5rem;
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      max-height: 280px;
+      max-width: 380px;
     }
 
 }
