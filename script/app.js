@@ -41,9 +41,9 @@ const ShowDetail = function (jsonObject) {
   showbar1(heigt[0], heigt[1]);
   //console.log(image);
   document.getElementById('title_popup').innerHTML = dogs[id].name;
-  document.getElementById('bredfor_popup').innerHTML = "Bred for";
+  document.getElementById('bredfor_popup').innerHTML = 'Bred for';
   document.getElementById('bredforcontent_popup').innerHTML = dogs[id].bred_for;
-  document.getElementById('temprament_popup').innerHTML = 'Temprament';
+  document.getElementById('temprament_popup').innerHTML = 'Temperament';
   document.getElementById('tempramentcontent_popup').innerHTML = dogs[id].temperament;
   const image = document.getElementById('img_popup');
 
@@ -116,7 +116,7 @@ const showbar1 = function (startValue, progressEndValue) {
   )`;
     if (progressValue >= progressEndValue) {
       clearInterval(progress);
-    };
+    }
   }, speed);
 };
 
