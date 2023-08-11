@@ -8,15 +8,6 @@ let id;
 // #region ***  Callback-no-Visualisation - callback___         ***********
 
 const ShowDetail = function (jsonObject) {
-  // let champ = Object.keys(jsonObject.data)[0];
-  // console.log(jsonObject.data[champ]);
-  // let image = jsonObject.data[champ].image.full;
-  // let info = jsonObject.data[champ];
-  // let damage = jsonObject.data[champ].info.attack;
-  // let armor = jsonObject.data[champ].info.defense;
-  // let magic = jsonObject.data[champ].info.magic;
-  // let difficulty = jsonObject.data[champ].info.difficulty;$
-  // id = id - 1;
   const dogs = [];
   for (let dog of jsonObject) {
     dogs[dog.id] = dog;
