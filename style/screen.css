@@ -16,9 +16,11 @@
 :root {
   /* colors */
   --color-light: rgb(175, 94, 241);
-  --color-dark: hsla(208, 100%, 20%, 1);
-  --color-alpha: #6016a5;
-  --color-white: #f0e8f7;
+  --color-dark: #0B3954;
+  /* --color-alpha: #6016a5; */
+  --color-alpha: #9381FF;
+  --color-white: #F8F7FF;
+  --color-gray: #838E83;
   --color-front: var(--color-dark);
   --color-back: var(--color-light);
   /* opacity */
@@ -49,6 +51,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--color-front);
+  background-color: var(--color-white);
 }
 
 *,
@@ -268,31 +271,55 @@ input::placeholder {
 
 .c-overview {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2rem;
-  margin: 1.2rem;
-  padding-bottom: 2rem;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 15.625rem);
+  grid-auto-rows: 20.625rem; /* 250px */
+  gap: 2rem;
+  margin: 2rem;
 }
 
 .c-overview__items {
-  background-color: var(--global-color-white);
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04);
-  max-width: 340px;
-  max-height: 340px;
-  /* padding: 20px; */
+  position: relative;
+  overflow: hidden;
 }
-.c-overview__items:hover {
+.c-dog_img:hover {
   border: var(--color-alpha) 3px solid;
 }
-.c-champion_img:focus {
-  border: var(--color-alpha) 3px solid;
-}
-.c-champion_img{
+
+.c-dog_img{
   width: 100%;
   height: 100%;
-  max-height: 300px;
-
+  object-fit: cover;
+  padding-bottom: 5rem;
+  margin-bottom: -5rem;
+  border-radius: 10px;
 }
+
+.c-dog_img:focus {
+  border: var(--color-alpha) 3px solid;
+  outline: none;
+}
+
+.c-dog_title_container{
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+.c-dog_title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-alpha);
+  margin: 0;
+  /* Remove hover overlapping */
+  pointer-events: none;
+}
+
+
 /*
     Component: Logo
     ---
@@ -392,11 +419,8 @@ input::placeholder {
     transform:translateY(1.375rem);
 }
 .small-logo {
-  width: 60px;
-  height: 60px;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  margin-right: 0.5rem;
+  width: 40px;
+  height: 40px;
   display: block;
 }
 .text-logo {
@@ -411,8 +435,14 @@ input::placeholder {
   margin-bottom: 1rem;
   text-align: center;
   background-color: var(--color-alpha);
-  color: rgb(214, 184, 11);
+  color: var(--color-white);
   padding-bottom: 0.5rem;
+}
+
+.c-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*
@@ -624,10 +654,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .c-overview {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 2rem;
-      margin: 2rem;
+      gap: 2.5rem;
     }
     .modal-foto {
       /* padding-left: 40%; */
@@ -650,11 +677,8 @@ body {
         }
 }
 @media screen and (min-width: 1028px){
-  .c-overview {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-gap: 2.5rem;
-      margin: 3.125rem;
+    .c-overview {
+      gap: 3rem;
     }
     .c-circular-progress {
       position: relative;
