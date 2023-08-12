@@ -483,6 +483,7 @@ input::placeholder {
   border: 1px solid #888;
   width: 80%;
   opacity: 0;
+  border-radius: 20px;
   transition: opacity 1s ease-in-out;
   animation-name: animatetop;
     animation-duration: 0.8s
@@ -498,6 +499,8 @@ input::placeholder {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 
 }
 
@@ -640,8 +643,9 @@ body {
 .c-value-container {
   position: relative;
   /* font-family: "Poppins", sans-serif; */
-  font-size: 32px;
+  font-size: 30px;
   color: #231c3d;
+  width: 110px;
 }
 .circular-progress1 {
   grid-row-start: 1;
