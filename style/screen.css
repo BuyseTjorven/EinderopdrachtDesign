@@ -477,7 +477,7 @@ input::placeholder {
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #f9edff;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -637,7 +637,7 @@ body {
   position: absolute;
   height: 84%;
   width: 84%;
-  background-color: #ffffff;
+  background-color: #f9edff;
   border-radius: 50%;
 }
 .c-value-container {

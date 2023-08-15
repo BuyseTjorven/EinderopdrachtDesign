@@ -2,8 +2,7 @@
 let htmlRandomButton;
 let id;
 
-
-const ShowDetail = function (jsonObject) {
+const ShowDetail = async function (jsonObject) {
   const dogs = [];
   for (let dog of jsonObject) {
     dogs[dog.id] = dog;
@@ -33,8 +32,19 @@ const ShowDetail = function (jsonObject) {
   document.getElementById('temprament_popup').innerHTML = 'Temperament';
   document.getElementById('tempramentcontent_popup').innerHTML = dogs[id].temperament;
   const image = document.getElementById('img_popup');
-
-  image.src = `${dogs[id].image.url}`;
+  let image_id = dogs[id].reference_image_id;
+    console.log(image_id);
+    let endpoint = `https://api.thedogapi.com/v1/images/${image_id}`;
+    let imagee;
+    await fetch(endpoint)
+      .then((Response) => {
+        return Response.json();
+      })
+      .then((data) => {
+        //console.log(data.url);
+        imagee = data.url;
+      });
+  image.src = `${imagee}`;
   console.log(dogs[id].name);
 };
 const Dials = function () {
@@ -42,11 +52,25 @@ const Dials = function () {
   showbar1();
 };
 
-const printAllDog = function (jsonObject) {
+const printAllDog = async function (jsonObject) {
   console.log(jsonObject);
   for (let dog of jsonObject) {
     //console.log(dog);
-    let image = `${dog.image.url}`;
+    //let image = `${dog.image.url}`;
+    //let test = getFoto(`https://api.thedogapi.com/v1/images/BJa4kxc4X`)
+    let image_id = dog.reference_image_id;
+    console.log(image_id);
+    let endpoint = `https://api.thedogapi.com/v1/images/${image_id}`;
+    let image;
+    await fetch(endpoint)
+      .then((Response) => {
+        return Response.json();
+      })
+      .then((data) => {
+        //console.log(data.url);
+        image = data.url;
+      });
+    console.log('test hierboven');
     //console.log(image);
     let overview = document.querySelector('.c-overview');
     overview.innerHTML += `<div class="c-overview__items">
@@ -55,6 +79,7 @@ const printAllDog = function (jsonObject) {
           <h3 class="c-dog_title">${dog.name}</h3>
         </div>
       </div>`;
+      if(dog.id >'60'){break;}
   }
   Popup();
 };
@@ -150,8 +175,6 @@ const Popup = function () {
   };
 };
 
-
-
 /*** GET ***/
 const getAllDogs = function (typeid) {
   handleData(`https://api.TheDogAPI.com/v1/breeds`, printAllDog);
@@ -160,8 +183,6 @@ const getAllDogs = function (typeid) {
 const getAllDogsInfo = function (typeid) {
   handleData(`https://api.TheDogAPI.com/v1/breeds`, ShowDetail);
 };
-
-
 
 // DomContentLoaded
 const init = function () {
