@@ -79,9 +79,9 @@ const printAllDog = async function (jsonObject) {
           <h3 class="c-dog_title">${dog.name}</h3>
         </div>
       </div>`;
+    Popup();
       if(dog.id >'60'){break;}
   }
-  Popup();
 };
 
 const showbar = function (startValue, progressEndValue) {
